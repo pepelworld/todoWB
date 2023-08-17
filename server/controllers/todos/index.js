@@ -2,7 +2,6 @@ const { todosModel } = require('../../models/todos');
 
 const createTodoController = async (req, res) => {
     res.status(200).json({
-        jsonrpc: '2.0',
         error: false,
         errorText: '',
         additionalErrors: null,
@@ -12,7 +11,6 @@ const createTodoController = async (req, res) => {
 
 const deleteTodoController = async (req, res) => {
     res.status(200).json({
-        jsonrpc: '2.0',
         error: false,
         errorText: '',
         additionalErrors: null,
@@ -24,7 +22,6 @@ const fetchTodosController = async (req, res) => {
     const todos = await todosModel.value();
 
     res.status(200).json({
-        jsonrpc: '2.0',
         error: false,
         errorText: '',
         additionalErrors: null,
@@ -36,7 +33,6 @@ const fetchTodosController = async (req, res) => {
 
 const updateTodosController = async (req, res) => {
     res.status(200).json({
-        jsonrpc: '2.0',
         error: false,
         errorText: '',
         additionalErrors: null,
