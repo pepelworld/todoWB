@@ -9,3 +9,8 @@ export const getPortalEuEndpoint = (): string =>
     : ENDPOINT_EU_PORTAL_PROD;
 
 export const translationsEndpoint = `${getPortalEuEndpoint()}/I18N`;
+
+export const ORIGIN_TODO_ENDPOINT =
+  process.env.NODE_ENV === 'production'
+    ? 'http://prod-url'
+    : 'http://localhost:8081/todos';
