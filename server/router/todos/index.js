@@ -8,7 +8,7 @@ const {
 
 const todosRouter = express.Router();
 
-// todo
+// todos
 todosRouter.get('/getTodos', fetchTodosController);
 todosRouter.post('/deleteTodo', deleteTodoController);
 todosRouter.post('/createTodo', createTodoController);

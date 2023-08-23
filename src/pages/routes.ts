@@ -1,3 +1,3 @@
-import todo from '@/pages/todo/route';
+import todos from '@/pages/todos/route';
 
-export const routes = [todo];
+export const routes = [todos];
