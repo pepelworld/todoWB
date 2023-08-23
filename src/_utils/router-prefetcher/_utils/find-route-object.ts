@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unused-modules */
+
 import { IAdvancedRoute } from '@wildberries/service-router';
 
 type ParamsType = {
@@ -14,7 +16,7 @@ export const findRouteObject = ({
   const maxRouteNameDepth =
     splittedRouteName.length > 0 ? splittedRouteName.length - 1 : 0;
 
-  const recursiveRoutesSearch = ({ findRoutes, depth }) => {
+  const recursiveRoutesSearch = ({ findRoutes, depth }): void => {
     const routePartialName = splittedRouteName[depth];
 
     if (!routePartialName || depth > maxRouteNameDepth) {

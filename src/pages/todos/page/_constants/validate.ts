@@ -1,12 +1,6 @@
-import {
-  composeValidators,
-  SimpleValidator,
-  ValidatorReturnsType,
-} from '@mihanizm56/validators';
-import { TodoType } from '../../_redux/todos-module/_types';
+import { composeValidators, SimpleValidator } from '@mihanizm56/validators';
 
 const simpleValidator = new SimpleValidator();
-
 
 export const TODO_FORM_VALIDATIONS = {
   title: composeValidators([

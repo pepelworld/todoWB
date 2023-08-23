@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 import { JSONRPCRequest, IResponse } from '@mihanizm56/fetch-api';
 import { makeRequestConfig } from './make-request-config';
 

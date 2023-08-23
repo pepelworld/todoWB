@@ -18,7 +18,7 @@ export const initialTodosState: TodosStoreType = {
 const reducer = (
   state: TodosStoreType = initialTodosState,
   action: ActionsType,
-) : TodosStoreType => {
+): TodosStoreType => {
   switch (action.type) {
     case fetchTodoSuccessAction.type:
       return { ...state, todos: action.payload };

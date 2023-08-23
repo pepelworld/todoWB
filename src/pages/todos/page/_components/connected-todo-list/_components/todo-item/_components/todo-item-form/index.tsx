@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Form, Field } from 'react-final-form';
-import {ButtonLink, FormCheckbox, FormSimpleInput} from '@wildberries/ui-kit';
+import { ButtonLink, FormCheckbox, FormSimpleInput } from '@wildberries/ui-kit';
 import { UpdatedTodoType } from '@/pages/todos/_redux/todos-module/_types';
 import { TODO_FORM_VALIDATIONS } from '@/pages/todos/page/_constants/validate';
 
@@ -65,8 +65,12 @@ export const TodoItemForm = memo(
                 name="isCompleted"
                 type="checkbox"
               />
-              <ButtonLink disabled={isSubmitDisabled} type="submit" text={'Изменить'}/>
-              <ButtonLink onClick={onCancel} type="button" text={'Отмена'}/>
+              <ButtonLink
+                disabled={isSubmitDisabled}
+                text="Изменить"
+                type="submit"
+              />
+              <ButtonLink onClick={onCancel} text="Отмена" type="button" />
             </form>
           );
         }}

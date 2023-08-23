@@ -43,7 +43,7 @@ import '@/styles/variables.module.scss';
 const ROOT_ELEMENT = document.getElementById('root');
 
 const router = configureRouter({
-  defaultRoute: 'todo',
+  defaultRoute: 'todos',
   eventNameToCancelRequests: ABORT_REQUEST_EVENT_NAME,
   // uncomment if you need envs from window (for example for request endpoints)
   // enableWindowEnvsMiddleware: true,

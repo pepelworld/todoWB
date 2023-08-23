@@ -16,11 +16,7 @@ const action: IAction = async ({ fromState, toState }) => {
           storeInjectConfig={storeInjectConfig}
           toState={toState}
         >
-          <RouteNode nodeName={pageNode}>
-            {({ route }) =>
-                 <TodoPage />
-            }
-          </RouteNode>
+          <RouteNode nodeName={pageNode}>{() => <TodoPage />}</RouteNode>
         </ReduxStoreLoader>
       </AppLayout>
     ),

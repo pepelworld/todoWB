@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 interface IParseTypesMap {
   json: 'json';
   blob: 'blob';

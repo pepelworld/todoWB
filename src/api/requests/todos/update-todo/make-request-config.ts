@@ -4,10 +4,7 @@ import { TodoType } from '@/api/requests/todos/_types';
 import { requestTranslateFunction } from '@/_constants/i18next/i18next-constants';
 import { responseSchema } from './response-schema';
 
-export type UpdatedTodoType = Pick<
-  TodoType,
-  'title' | 'description' | 'isCompleted'
->;
+type UpdatedTodoType = Pick<TodoType, 'title' | 'description' | 'isCompleted'>;
 export const makeRequestConfig = (
   updatedData: UpdatedTodoType,
 ): IRequestParams => ({

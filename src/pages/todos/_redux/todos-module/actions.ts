@@ -1,5 +1,5 @@
 import { IReduxBaseAction, IReduxAction } from '@mihanizm56/redux-core-modules';
-import {deleteTodoActionType, TodoIdType, TodoType} from './_types';
+import { TodoIdType, TodoType } from './_types';
 
 const START_LOADING_TODOS = 'START_LOADING_TODOS';
 export const startLoadingTodosAction: IReduxBaseAction<
@@ -29,10 +29,9 @@ fetchTodoSuccessAction.type = FETCH_TODO_SUCCESS;
 
 const DELETE_TODO = 'DELETE_TODO';
 export const deleteTodoActionSaga: IReduxAction<
-    TodoIdType,
-    typeof DELETE_TODO
->
-    = (payload) => ({
+  TodoIdType,
+  typeof DELETE_TODO
+> = (payload) => ({
   type: DELETE_TODO,
   payload,
 });

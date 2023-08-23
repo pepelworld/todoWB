@@ -1,4 +1,3 @@
-import { InitLoadManagerRequestOptionsType } from '@mihanizm56/redux-core-modules';
 import { fetchTodosRequest } from '@/api/requests/todos/fetch-todo';
 import {
   startLoadingTodosAction,

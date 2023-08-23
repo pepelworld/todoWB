@@ -1,5 +1,6 @@
-import {memo, useCallback, useMemo, useState} from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { fetchFormManagerSagaAction } from '@mihanizm56/redux-core-modules';
+import { ButtonLink } from '@wildberries/ui-kit';
 import { deleteTodoActionSaga } from '@/pages/todos/_redux/todos-module';
 import {
   UpdatedTodoType,
@@ -7,7 +8,6 @@ import {
 } from '@/pages/todos/_redux/todos-module/_types';
 import { getUpdateTodoConfig } from '@/pages/todos/_utils/get-update-todo-config';
 import { TodoItemForm } from './_components/todo-item-form';
-import {ButtonLink} from "@wildberries/ui-kit";
 
 type PropsType = {
   todo: TodoType;
@@ -20,12 +20,15 @@ export const TodoItem = memo(
   ({ todo, onDelete, onUpdate, isTodosLoading }: PropsType) => {
     const [isEditing, setIsEditing] = useState(false);
 
-    const createdDate = new Date(todo.createdDate).toLocaleDateString('ru-RU')
+    const createdDate = new Date(todo.createdDate).toLocaleDateString('ru-RU');
 
-      const isCompleted = useMemo(() => todo.isCompleted ? 'Завершена' : 'Не завершена', [todo.isCompleted])
+    const isCompleted = useMemo(
+      () => (todo.isCompleted ? 'Завершена' : 'Не завершена'),
+      [todo.isCompleted],
+    );
 
     const toggleEditing = () => {
-        setIsEditing(!isEditing)
+      setIsEditing(!isEditing);
     };
 
     const cancelEdit = useCallback(() => {
@@ -65,8 +68,8 @@ export const TodoItem = memo(
       <div>
         {createdDate} {todo.title}
         {todo.description} {isCompleted}
-        <ButtonLink onClick={toggleEditing} type="button" text={'Edit'} />
-        <ButtonLink onClick={handleDeleteClick} type="button" text={'Delete'} />
+        <ButtonLink onClick={toggleEditing} text="Edit" type="button" />
+        <ButtonLink onClick={handleDeleteClick} text="Delete" type="button" />
       </div>
     );
   },

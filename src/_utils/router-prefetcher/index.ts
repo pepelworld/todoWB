@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 import { Router } from 'router5';
 import { findRouteObject } from './_utils/find-route-object';
 

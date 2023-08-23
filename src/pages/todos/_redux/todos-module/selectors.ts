@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { TODOS_REDUCER_NAME } from './_constants';
-import {TodosStorePartType, TodosStoreType} from './_types';
+import { TodosStorePartType, TodosStoreType } from './_types';
 import { initialTodosState } from './reducer';
 
 export const todosStoreSelector = (store: TodosStorePartType): TodosStoreType =>

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 export const ENDPOINT_EU_PORTAL_DEV = '';
 // export const ENDPOINT_EU_PORTAL_PROD = process.env.ENDPOINT_EU_PORTAL;
 export const ENDPOINT_EU_PORTAL_PROD =
