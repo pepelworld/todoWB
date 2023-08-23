@@ -2,7 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import { setModalAction } from '@wildberries/notifications';
 import { initLoadManagerActionSaga } from '@mihanizm56/redux-core-modules';
 import { deleteTodoRequest } from '@/api/requests/todos/delete-todo';
-import { getFetchTodosConfig } from '@/pages/todos/_utils/get-fetch-todos-config';
+import { fetchTodosConfig } from '@/pages/todos/_utils/get-fetch-todos-config';
 import { TodoIdType } from '@/pages/todos/_redux/todos-module/_types';
 import { startLoadingTodosAction, stopLoadingTodosAction } from '../../actions';
 
@@ -17,7 +17,7 @@ export function* deleteTodoWorkerSaga(todoId: TodoIdType) {
 
     yield put(
       initLoadManagerActionSaga({
-        requestConfigList: [getFetchTodosConfig],
+        requestConfigList: [fetchTodosConfig],
       }),
     );
 

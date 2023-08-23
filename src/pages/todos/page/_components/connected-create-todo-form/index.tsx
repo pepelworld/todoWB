@@ -21,27 +21,26 @@ type MapDispatchType = {
 
 type PropsType = MapStateOutputType & MapDispatchType;
 
-const WrapperComponent = memo((props: PropsType) => {
-  const handleSubmit = (
-    values: CreatedTodoType,
-    form: FormApi<CreatedTodoType, TodoType>,
-  ) => {
-    const successCallback = form.reset;
-    props.fetchFormManager(
-      getCreateTodoConfig({
-        values,
-        successCallback,
-      }),
-    );
-  };
+const WrapperComponent = memo(
+  ({ isTodosLoading, fetchFormManager }: PropsType) => {
+    const handleSubmit = (
+      values: CreatedTodoType,
+      form: FormApi<CreatedTodoType, TodoType>,
+    ) => {
+      const successCallback = form.reset;
+      fetchFormManager(
+        getCreateTodoConfig({
+          values,
+          successCallback,
+        }),
+      );
+    };
 
-  return (
-    <CreateTodoFormView
-      isLoading={props.isTodosLoading}
-      onSubmit={handleSubmit}
-    />
-  );
-});
+    return (
+      <CreateTodoFormView isLoading={isTodosLoading} onSubmit={handleSubmit} />
+    );
+  },
+);
 
 const mapStateToProps = (state: TodosStorePartType): MapStateOutputType => ({
   isTodosLoading: isTodosLoadingSelector(state),

@@ -70,7 +70,7 @@ export const TodoItemForm = memo(
                 text="Изменить"
                 type="submit"
               />
-              <ButtonLink onClick={onCancel} text="Отмена" type="button" />
+              <ButtonLink onClick={onCancel} text="Отмена" />
             </form>
           );
         }}

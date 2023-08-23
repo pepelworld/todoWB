@@ -9,7 +9,7 @@ import {
 } from '@/pages/todos/_redux/todos-module';
 import { CreatedTodoType } from '@/pages/todos/_redux/todos-module/_types';
 import { TodoType } from '@/api/requests/todos/_types';
-import { getFetchTodosConfig } from './get-fetch-todos-config';
+import { fetchTodosConfig } from './get-fetch-todos-config';
 
 type ParamsType = {
   values: CreatedTodoType;
@@ -30,7 +30,7 @@ export const getCreateTodoConfig = ({
     successCallback();
 
     return initLoadManagerActionSaga({
-      requestConfigList: [getFetchTodosConfig],
+      requestConfigList: [fetchTodosConfig],
     });
   },
 });

@@ -8,7 +8,7 @@ import {
 } from '@/pages/todos/_redux/todos-module';
 import { UpdatedTodoType } from '@/pages/todos/_redux/todos-module/_types';
 import { updateTodoRequest } from '@/api/requests/todos/update-todo';
-import { getFetchTodosConfig } from './get-fetch-todos-config';
+import { fetchTodosConfig } from './get-fetch-todos-config';
 
 export const getUpdateTodoConfig = (
   updatedData: UpdatedTodoType,
@@ -22,7 +22,7 @@ export const getUpdateTodoConfig = (
     textMessageSuccess: 'Задача успешно изменена',
     formSuccessAction: () =>
       initLoadManagerActionSaga({
-        requestConfigList: [getFetchTodosConfig],
+        requestConfigList: [fetchTodosConfig],
       }),
   };
 };

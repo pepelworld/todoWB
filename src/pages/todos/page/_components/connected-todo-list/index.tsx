@@ -21,23 +21,23 @@ type MapDispatchType = {
 
 type PropsType = MapStateOutputType & MapDispatchType;
 
-const WrapperComponent = memo((props: PropsType) => {
-  const { todos, isTodosLoading, deleteTodo, fetchFormManager } = props;
-
-  return (
-    <>
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          isTodosLoading={isTodosLoading}
-          onDelete={deleteTodo}
-          onUpdate={fetchFormManager}
-          todo={todo}
-        />
-      ))}
-    </>
-  );
-});
+const WrapperComponent = memo(
+  ({ isTodosLoading, todos, deleteTodo, fetchFormManager }: PropsType) => {
+    return (
+      <>
+        {todos.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            isTodosLoading={isTodosLoading}
+            onDelete={deleteTodo}
+            onUpdate={fetchFormManager}
+            todo={todo}
+          />
+        ))}
+      </>
+    );
+  },
+);
 
 const mapStateToProps = (state: TodosStorePartType): MapStateOutputType => ({
   todos: todosSelector(state),

@@ -8,7 +8,7 @@ import {
   DELETE_TODO_WATCHER_SAGA_NAME,
   deleteTodoWatcherSaga,
 } from '../_redux/todos-module/sagas/delete-todo';
-import { getFetchTodosConfig } from '../_utils/get-fetch-todos-config';
+import { fetchTodosConfig } from '../_utils/get-fetch-todos-config';
 
 export const storeInjectConfig: StoreInjectConfig = {
   reducersToInject: [
@@ -29,6 +29,6 @@ export const storeInjectConfig: StoreInjectConfig = {
   ],
 
   initialLoadManagerConfig: {
-    requestConfigList: [getFetchTodosConfig],
+    requestConfigList: [fetchTodosConfig],
   },
 };

@@ -5,7 +5,7 @@ import {
   setTodosAction,
 } from '../_redux/todos-module';
 
-export const getFetchTodosConfig = {
+export const fetchTodosConfig = {
   request: fetchTodosRequest,
   loadingStartAction: startLoadingTodosAction,
   loadingStopAction: stopLoadingTodosAction,
