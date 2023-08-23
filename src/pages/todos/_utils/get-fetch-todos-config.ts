@@ -2,7 +2,7 @@ import { fetchTodosRequest } from '@/api/requests/todos/fetch-todo';
 import {
   startLoadingTodosAction,
   stopLoadingTodosAction,
-  fetchTodoSuccessAction,
+  setTodosAction,
 } from '../_redux/todos-module';
 
 export const getFetchTodosConfig = {
@@ -12,7 +12,7 @@ export const getFetchTodosConfig = {
   requestExtraDataHandlerOptions: [
     {
       fieldName: 'todos',
-      action: fetchTodoSuccessAction,
+      action: setTodosAction,
     },
   ],
   showErrorNotification: true,

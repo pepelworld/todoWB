@@ -18,14 +18,14 @@ export const stopLoadingTodosAction: IReduxBaseAction<
 stopLoadingTodosAction.type = STOP_LOADING_TODOS;
 
 const FETCH_TODO_SUCCESS = 'FETCH_TODO_SUCCESS';
-export const fetchTodoSuccessAction: IReduxAction<
+export const setTodosAction: IReduxAction<
   Array<TodoType>,
   typeof FETCH_TODO_SUCCESS
 > = (payload) => ({
   type: FETCH_TODO_SUCCESS,
   payload,
 });
-fetchTodoSuccessAction.type = FETCH_TODO_SUCCESS;
+setTodosAction.type = FETCH_TODO_SUCCESS;
 
 const DELETE_TODO = 'DELETE_TODO';
 export const deleteTodoActionSaga: IReduxAction<

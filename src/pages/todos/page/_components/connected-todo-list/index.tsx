@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchFormManagerSagaAction } from '@mihanizm56/redux-core-modules';
+import { memo } from 'react';
 import {
   deleteTodoActionSaga,
   isTodosLoadingSelector,
@@ -20,7 +21,7 @@ type MapDispatchType = {
 
 type PropsType = MapStateOutputType & MapDispatchType;
 
-const WrapperComponent = (props: PropsType) => {
+const WrapperComponent = memo((props: PropsType) => {
   const { todos, isTodosLoading, deleteTodo, fetchFormManager } = props;
 
   return (
@@ -36,7 +37,7 @@ const WrapperComponent = (props: PropsType) => {
       ))}
     </>
   );
-};
+});
 
 const mapStateToProps = (state: TodosStorePartType): MapStateOutputType => ({
   todos: todosSelector(state),

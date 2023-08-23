@@ -1,6 +1,7 @@
-import { memo, useCallback, useMemo, useState } from 'react';
+import React, { memo, useCallback, useMemo, useState } from 'react';
 import { fetchFormManagerSagaAction } from '@mihanizm56/redux-core-modules';
-import { ButtonLink } from '@wildberries/ui-kit';
+import { BasicCheckMarkIcon, ButtonLink, Text } from '@wildberries/ui-kit';
+import classnames from 'classnames/bind';
 import { deleteTodoActionSaga } from '@/pages/todos/_redux/todos-module';
 import {
   UpdatedTodoType,
@@ -8,6 +9,7 @@ import {
 } from '@/pages/todos/_redux/todos-module/_types';
 import { getUpdateTodoConfig } from '@/pages/todos/_utils/get-update-todo-config';
 import { TodoItemForm } from './_components/todo-item-form';
+import styles from './index.module.scss';
 
 type PropsType = {
   todo: TodoType;
@@ -16,11 +18,18 @@ type PropsType = {
   isTodosLoading: boolean;
 };
 
+const cn = classnames.bind(styles);
+
+const BLOCK_NAME = 'TodoItem';
+
 export const TodoItem = memo(
   ({ todo, onDelete, onUpdate, isTodosLoading }: PropsType) => {
     const [isEditing, setIsEditing] = useState(false);
 
-    const createdDate = new Date(todo.createdDate).toLocaleDateString('ru-RU');
+    const createdDate = useMemo(
+      () => new Date(todo.createdDate).toLocaleDateString('ru-RU'),
+      [todo.createdDate],
+    );
 
     const isCompleted = useMemo(
       () => (todo.isCompleted ? 'Завершена' : 'Не завершена'),
@@ -47,9 +56,9 @@ export const TodoItem = memo(
       [cancelEdit, onUpdate, todo.id],
     );
 
-    const handleDeleteClick = () => {
+    const handleDeleteClick = useCallback(() => {
       onDelete({ id: todo.id });
-    };
+    }, [todo.id, onDelete]);
 
     if (isEditing) {
       return (
@@ -65,11 +74,22 @@ export const TodoItem = memo(
     }
 
     return (
-      <div>
-        {createdDate} {todo.title}
-        {todo.description} {isCompleted}
-        <ButtonLink onClick={toggleEditing} text="Edit" type="button" />
-        <ButtonLink onClick={handleDeleteClick} text="Delete" type="button" />
+      <div className={cn(BLOCK_NAME)}>
+        <div className={cn(`${BLOCK_NAME}__title`)}>
+          <Text isUpperCase size="h3-bold" text={todo.title} />
+          <Text color="blue" text={createdDate} />
+        </div>
+        <Text text={todo.description} />
+        {todo.isCompleted && (
+          <div className={cn(`${BLOCK_NAME}__status`)}>
+            <Text text={isCompleted} />
+            <BasicCheckMarkIcon colorType="cyanColor" />
+          </div>
+        )}
+        <div className={cn(`${BLOCK_NAME}__controls`)}>
+          <ButtonLink onClick={toggleEditing} text="Edit" type="button" />
+          <ButtonLink onClick={handleDeleteClick} text="Delete" type="button" />
+        </div>
       </div>
     );
   },

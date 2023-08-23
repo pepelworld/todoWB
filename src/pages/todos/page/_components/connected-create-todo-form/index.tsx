@@ -1,6 +1,7 @@
 import { fetchFormManagerSagaAction } from '@mihanizm56/redux-core-modules';
 import { connect } from 'react-redux';
 import { FormApi } from 'final-form';
+import { memo } from 'react';
 import { isTodosLoadingSelector } from '@/pages/todos/_redux/todos-module';
 import {
   CreatedTodoType,
@@ -20,7 +21,7 @@ type MapDispatchType = {
 
 type PropsType = MapStateOutputType & MapDispatchType;
 
-const WrapperComponent = (props: PropsType) => {
+const WrapperComponent = memo((props: PropsType) => {
   const handleSubmit = (
     values: CreatedTodoType,
     form: FormApi<CreatedTodoType, TodoType>,
@@ -40,7 +41,7 @@ const WrapperComponent = (props: PropsType) => {
       onSubmit={handleSubmit}
     />
   );
-};
+});
 
 const mapStateToProps = (state: TodosStorePartType): MapStateOutputType => ({
   isTodosLoading: isTodosLoadingSelector(state),

@@ -2,13 +2,13 @@ import { TodosStoreType } from './_types';
 import {
   startLoadingTodosAction,
   stopLoadingTodosAction,
-  fetchTodoSuccessAction,
+  setTodosAction,
 } from './actions';
 
 type ActionsType =
   | ReturnType<typeof startLoadingTodosAction>
   | ReturnType<typeof stopLoadingTodosAction>
-  | ReturnType<typeof fetchTodoSuccessAction>;
+  | ReturnType<typeof setTodosAction>;
 
 export const initialTodosState: TodosStoreType = {
   todos: [],
@@ -20,7 +20,7 @@ const reducer = (
   action: ActionsType,
 ): TodosStoreType => {
   switch (action.type) {
-    case fetchTodoSuccessAction.type:
+    case setTodosAction.type:
       return { ...state, todos: action.payload };
 
     case startLoadingTodosAction.type:
