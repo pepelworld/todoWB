@@ -25,10 +25,11 @@ const WrapperComponent = (props: PropsType) => {
     values: CreatedTodoType,
     form: FormApi<CreatedTodoType, TodoType>,
   ) => {
+    const successCallback = form.reset;
     props.fetchFormManager(
       getCreateTodoConfig({
         values,
-        form,
+        successCallback,
       }),
     );
   };

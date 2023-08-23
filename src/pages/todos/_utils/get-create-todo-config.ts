@@ -2,7 +2,6 @@ import {
   FormManagerType,
   initLoadManagerActionSaga,
 } from '@mihanizm56/redux-core-modules';
-import { FormApi } from 'final-form';
 import { createTodoRequest } from '@/api/requests/todos/create-todo';
 import {
   startLoadingTodosAction,
@@ -14,12 +13,12 @@ import { getFetchTodosConfig } from './get-fetch-todos-config';
 
 type ParamsType = {
   values: CreatedTodoType;
-  form: FormApi<CreatedTodoType, TodoType>;
+  successCallback: (initialValues?: TodoType) => void;
 };
 
 export const getCreateTodoConfig = ({
   values,
-  form,
+  successCallback,
 }: ParamsType): FormManagerType => ({
   formValues: values,
   loadingStartAction: startLoadingTodosAction,
@@ -28,7 +27,7 @@ export const getCreateTodoConfig = ({
   formRequest: ({ body }) => createTodoRequest(body),
   textMessageSuccess: 'Задача успешно создана',
   formSuccessAction: () => {
-    form.reset();
+    successCallback();
 
     return initLoadManagerActionSaga({
       requestConfigList: [getFetchTodosConfig],
