@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import classnames from 'classnames/bind';
-import styles from './index.module.scss';
 import { Card } from './_components/card';
 import { Header } from './_components/header';
+import styles from './index.module.scss';
 
 const cn = classnames.bind(styles);
 

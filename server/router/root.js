@@ -21,6 +21,6 @@ rootRouter.use('/suppliers', suppliersRouter);
 rootRouter.use('/users', usersRouter);
 rootRouter.use('/legal-forms', legalFormsRouter);
 rootRouter.use('/statkey', statkeyRouter);
-rootRouter.use('/todos', todosRouter);
+rootRouter.use('/todo', todosRouter);
 
 module.exports.rootRouter = rootRouter;

@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 import { APP_NAMESPACE } from '@/_constants/i18next/app-namespace';
 
-export const backendErrorsSubnamespace = 'backend-errors';
+const backendErrorsSubnamespace = 'backend-errors';
 
 export const requestTranslateFunction = (
   key: string,
