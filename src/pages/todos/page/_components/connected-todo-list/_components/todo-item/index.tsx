@@ -39,9 +39,9 @@ export const TodoItem = memo(
       [todo.createdDate],
     );
 
-    const toggleEditing = () => {
+    const toggleEditing = useCallback(() => {
       setIsEditing(!isEditing);
-    };
+    }, [isEditing]);
 
     const cancelEdit = useCallback(() => {
       setIsEditing(false);
