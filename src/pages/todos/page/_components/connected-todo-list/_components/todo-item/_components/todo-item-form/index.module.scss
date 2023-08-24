@@ -1,0 +1,9 @@
+@import "@/styles/mixins.module.scss";
+
+.TodoItemForm {
+  @include simple-card-styles;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}

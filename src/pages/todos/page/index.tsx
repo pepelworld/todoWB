@@ -13,6 +13,8 @@ export const TodoPage = memo(() => {
     <div className={cn(BLOCK_NAME)}>
       <ConnectedCreateTodoForm />
 
+      <div className={cn(`${BLOCK_NAME}__devider`)} />
+
       <ConnectedTodoList />
     </div>
   );

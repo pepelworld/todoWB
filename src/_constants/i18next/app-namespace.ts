@@ -1,1 +1,1 @@
-export const APP_NAMESPACE = '<please run "npm run setup">';
+export const APP_NAMESPACE = 'todoWB';

@@ -5,3 +5,11 @@
   text-decoration: none;
 }
 
+@mixin simple-card-styles {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, .2);
+  margin: 20px 0;
+  padding: 20px;
+}
+

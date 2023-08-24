@@ -1,13 +1,21 @@
 import React, { memo, useCallback, useMemo, useState } from 'react';
 import { fetchFormManagerSagaAction } from '@mihanizm56/redux-core-modules';
-import { BasicCheckMarkIcon, ButtonLink, Text } from '@wildberries/ui-kit';
+import {
+  BasicCheckMarkIcon,
+  BasicClearIcon,
+  BasicPencilEditIcon,
+  ButtonLink,
+  Text,
+} from '@wildberries/ui-kit';
 import classnames from 'classnames/bind';
+import i18next from 'i18next';
 import { deleteTodoActionSaga } from '@/pages/todos/_redux/todos-module';
 import {
   UpdatedTodoType,
   TodoType,
 } from '@/pages/todos/_redux/todos-module/_types';
 import { getUpdateTodoConfig } from '@/pages/todos/_utils/get-update-todo-config';
+import { TODO_LIST_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
 import { TodoItemForm } from './_components/todo-item-form';
 import styles from './index.module.scss';
 
@@ -29,11 +37,6 @@ export const TodoItem = memo(
     const createdDate = useMemo(
       () => new Date(todo.createdDate).toLocaleDateString('ru-RU'),
       [todo.createdDate],
-    );
-
-    const isCompleted = useMemo(
-      () => (todo.isCompleted ? 'Завершена' : 'Не завершена'),
-      [todo.isCompleted],
     );
 
     const toggleEditing = () => {
@@ -79,16 +82,34 @@ export const TodoItem = memo(
           <Text isUpperCase size="h3-bold" text={todo.title} />
           <Text color="blue" text={createdDate} />
         </div>
-        <Text text={todo.description} />
+        <Text
+          text={i18next.t(TODO_LIST_PAGE_TRANSLATES.descriptionWithText, {
+            text: todo.description,
+          })}
+        />
         {todo.isCompleted && (
           <div className={cn(`${BLOCK_NAME}__status`)}>
-            <Text text={isCompleted} />
+            <Text text={i18next.t(TODO_LIST_PAGE_TRANSLATES.doneStatus)} />
             <BasicCheckMarkIcon colorType="cyanColor" />
           </div>
         )}
         <div className={cn(`${BLOCK_NAME}__controls`)}>
-          <ButtonLink onClick={toggleEditing} text="Edit" type="button" />
-          <ButtonLink onClick={handleDeleteClick} text="Delete" type="button" />
+          <ButtonLink
+            onClick={toggleEditing}
+            rightIcon={BasicPencilEditIcon}
+            size="small"
+            text={i18next.t(TODO_LIST_PAGE_TRANSLATES.updateButton)}
+            type="submit"
+            variant="only-icon"
+          />
+          <ButtonLink
+            onClick={handleDeleteClick}
+            rightIcon={BasicClearIcon}
+            size="small"
+            text={i18next.t(TODO_LIST_PAGE_TRANSLATES.cancelButton)}
+            type="submit"
+            variant="only-icon"
+          />
         </div>
       </div>
     );

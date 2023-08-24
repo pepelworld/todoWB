@@ -7,7 +7,7 @@
     "network-error": "Системная ошибка",
     "timeout-error": "Превышено время ожидания запроса"
   },
-  "todo-list": {
+  "todos": {
     "pageTitle": "TODO App",
     "createTodoTitle": "Создать новую задачу",
     "writeTitle": "Впишите заголовок",

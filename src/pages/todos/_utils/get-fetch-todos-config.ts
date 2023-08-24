@@ -1,4 +1,6 @@
+import i18next from 'i18next';
 import { fetchTodosRequest } from '@/api/requests/todos/fetch-todo';
+import { TODO_LIST_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
 import {
   startLoadingTodosAction,
   stopLoadingTodosAction,
@@ -16,5 +18,5 @@ export const fetchTodosConfig = {
     },
   ],
   showErrorNotification: true,
-  titleMessageError: 'Не удалось получить список задач',
+  titleMessageError: i18next.t(TODO_LIST_PAGE_TRANSLATES.fetchTodoError),
 };
