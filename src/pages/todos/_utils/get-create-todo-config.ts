@@ -10,7 +10,7 @@ import {
 } from '@/pages/todos/_redux/todos-module';
 import { CreatedTodoType } from '@/pages/todos/_redux/todos-module/_types';
 import { TodoType } from '@/api/requests/todos/_types';
-import { TODO_LIST_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
+import { TODO_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
 import { fetchTodosConfig } from './get-fetch-todos-config';
 
 type ParamsType = {
@@ -27,8 +27,8 @@ export const getCreateTodoConfig = ({
   loadingStopAction: stopLoadingTodosAction,
   showNotification: true,
   formRequest: ({ body }) => createTodoRequest(body),
-  textMessageSuccess: i18next.t(TODO_LIST_PAGE_TRANSLATES.createTodoSucces),
-  titleMessageError: i18next.t(TODO_LIST_PAGE_TRANSLATES.createTodoError),
+  textMessageSuccess: i18next.t(TODO_PAGE_TRANSLATES.createTodoSucces),
+  titleMessageError: i18next.t(TODO_PAGE_TRANSLATES.createTodoError),
   formSuccessAction: () => {
     successCallback();
 

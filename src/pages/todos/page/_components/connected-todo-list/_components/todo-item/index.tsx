@@ -15,7 +15,7 @@ import {
   TodoType,
 } from '@/pages/todos/_redux/todos-module/_types';
 import { getUpdateTodoConfig } from '@/pages/todos/_utils/get-update-todo-config';
-import { TODO_LIST_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
+import { TODO_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
 import { TodoItemForm } from './_components/todo-item-form';
 import styles from './index.module.scss';
 
@@ -83,13 +83,13 @@ export const TodoItem = memo(
           <Text color="blue" text={createdDate} />
         </div>
         <Text
-          text={i18next.t(TODO_LIST_PAGE_TRANSLATES.descriptionWithText, {
+          text={i18next.t(TODO_PAGE_TRANSLATES.descriptionWithText, {
             text: todo.description,
           })}
         />
         {todo.isCompleted && (
           <div className={cn(`${BLOCK_NAME}__status`)}>
-            <Text text={i18next.t(TODO_LIST_PAGE_TRANSLATES.doneStatus)} />
+            <Text text={i18next.t(TODO_PAGE_TRANSLATES.doneStatus)} />
             <BasicCheckMarkIcon colorType="cyanColor" />
           </div>
         )}
@@ -98,7 +98,7 @@ export const TodoItem = memo(
             onClick={toggleEditing}
             rightIcon={BasicPencilEditIcon}
             size="small"
-            text={i18next.t(TODO_LIST_PAGE_TRANSLATES.updateButton)}
+            text={i18next.t(TODO_PAGE_TRANSLATES.updateButton)}
             type="submit"
             variant="only-icon"
           />
@@ -106,7 +106,7 @@ export const TodoItem = memo(
             onClick={handleDeleteClick}
             rightIcon={BasicClearIcon}
             size="small"
-            text={i18next.t(TODO_LIST_PAGE_TRANSLATES.cancelButton)}
+            text={i18next.t(TODO_PAGE_TRANSLATES.cancelButton)}
             type="submit"
             variant="only-icon"
           />

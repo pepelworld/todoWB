@@ -3,21 +3,22 @@ const { todosModel } = require('../../models/todos');
 const createTodoController = async (req, res) => {
     const todoData = req.body;
 
+    const todos = todosModel.value()
+
     const newTodo = {
-        id: todosModel.length,
+        id: todos.length,
         isCompleted: false,
         createdDate: new Date(),
         ...todoData,
     };
 
-    await todosModel.push(newTodo).write();
-
-    res.status(200).json({
-        error: false,
-        errorText: '',
-        additionalErrors: null,
-        data: newTodo,
-    });
+        await todosModel.push(newTodo).write();
+        res.status(200).json({
+            error: false,
+            errorText: '',
+            additionalErrors: null,
+            data: newTodo,
+        });
 };
 
 const deleteTodoController = async (req, res) => {
@@ -25,7 +26,7 @@ const deleteTodoController = async (req, res) => {
 
     const todos = await todosModel.value();
 
-    await todosModel.remove({ id: deletedId }).write();
+    await todos.remove({ id: deletedId }).write();
 
     res.status(200).json({
         error: false,
@@ -43,7 +44,7 @@ const fetchTodosController = async (req, res) => {
         errorText: '',
         additionalErrors: null,
         data: {
-            todos,
+            todos
         },
     });
 };

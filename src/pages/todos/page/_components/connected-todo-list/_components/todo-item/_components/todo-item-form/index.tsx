@@ -5,7 +5,7 @@ import classnames from 'classnames/bind';
 import i18next from 'i18next';
 import { UpdatedTodoType } from '@/pages/todos/_redux/todos-module/_types';
 import { TODO_FORM_VALIDATIONS } from '@/pages/todos/page/_constants/validate';
-import { TODO_LIST_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
+import { TODO_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
 import styles from './index.module.scss';
 
 const cn = classnames.bind(styles);
@@ -44,9 +44,9 @@ export const TodoItemForm = memo(
                 component={FormSimpleInput}
                 id="todo-title"
                 initialValue={title}
-                label={i18next.t(TODO_LIST_PAGE_TRANSLATES.changeTitle)}
+                label={i18next.t(TODO_PAGE_TRANSLATES.changeTitle)}
                 name="title"
-                placeholder={i18next.t(TODO_LIST_PAGE_TRANSLATES.newTodoTitle)}
+                placeholder={i18next.t(TODO_PAGE_TRANSLATES.newTodoTitle)}
                 required
                 type="text"
                 validate={TODO_FORM_VALIDATIONS.title}
@@ -56,11 +56,9 @@ export const TodoItemForm = memo(
                 component={FormSimpleInput}
                 id="todo-description"
                 initialValue={description}
-                label={i18next.t(TODO_LIST_PAGE_TRANSLATES.changeDescription)}
+                label={i18next.t(TODO_PAGE_TRANSLATES.changeDescription)}
                 name="description"
-                placeholder={i18next.t(
-                  TODO_LIST_PAGE_TRANSLATES.newTodoDescription,
-                )}
+                placeholder={i18next.t(TODO_PAGE_TRANSLATES.newTodoDescription)}
                 required
                 type="text"
                 validate={TODO_FORM_VALIDATIONS.description}
@@ -71,7 +69,7 @@ export const TodoItemForm = memo(
                 disable={false}
                 id="todo-done"
                 initialValue={isCompleted}
-                label={i18next.t(TODO_LIST_PAGE_TRANSLATES.todoDone)}
+                label={i18next.t(TODO_PAGE_TRANSLATES.todoDone)}
                 name="isCompleted"
                 type="checkbox"
               />
@@ -79,7 +77,7 @@ export const TodoItemForm = memo(
                 disabled={isSubmitDisabled}
                 isLoading={isLoading}
                 size="big"
-                text={i18next.t(TODO_LIST_PAGE_TRANSLATES.updateButton)}
+                text={i18next.t(TODO_PAGE_TRANSLATES.updateButton)}
                 type="submit"
                 variant="remove"
               />
@@ -88,7 +86,7 @@ export const TodoItemForm = memo(
                 isLoading={isLoading}
                 onClick={onCancel}
                 size="big"
-                text={i18next.t(TODO_LIST_PAGE_TRANSLATES.cancelButton)}
+                text={i18next.t(TODO_PAGE_TRANSLATES.cancelButton)}
                 type="submit"
                 variant="add"
               />

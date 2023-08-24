@@ -1,6 +1,5 @@
 {
-    "routeName": "",
-    "routePath": "",
-    "i18nNamespace": "",
+    "routeName": "todos",
+    "routePath": "todos",
     "envs": "RUNTIME_ENVS"
 }

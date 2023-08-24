@@ -9,7 +9,7 @@ import {
 } from '@/pages/todos/_redux/todos-module';
 import { UpdatedTodoType } from '@/pages/todos/_redux/todos-module/_types';
 import { updateTodoRequest } from '@/api/requests/todos/update-todo';
-import { TODO_LIST_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
+import { TODO_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
 import { fetchTodosConfig } from './get-fetch-todos-config';
 
 export const getUpdateTodoConfig = (
@@ -21,8 +21,8 @@ export const getUpdateTodoConfig = (
     loadingStopAction: stopLoadingTodosAction,
     showNotification: true,
     formRequest: ({ body }) => updateTodoRequest(body),
-    textMessageSuccess: i18next.t(TODO_LIST_PAGE_TRANSLATES.updateTodoSucces),
-    titleMessageError: i18next.t(TODO_LIST_PAGE_TRANSLATES.updateTodoError),
+    textMessageSuccess: i18next.t(TODO_PAGE_TRANSLATES.updateTodoSucces),
+    titleMessageError: i18next.t(TODO_PAGE_TRANSLATES.updateTodoError),
     formSuccessAction: () =>
       initLoadManagerActionSaga({
         requestConfigList: [fetchTodosConfig],

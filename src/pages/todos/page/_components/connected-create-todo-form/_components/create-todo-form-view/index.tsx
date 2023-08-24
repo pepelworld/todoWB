@@ -7,7 +7,7 @@ import i18next from 'i18next';
 import { CreatedTodoType } from '@/pages/todos/_redux/todos-module/_types';
 import { TODO_FORM_VALIDATIONS } from '@/pages/todos/page/_constants/validate';
 import { TodoType } from '@/api/requests/todos/_types';
-import { TODO_LIST_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
+import { TODO_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
 import styles from './index.module.scss';
 
 const cn = classnames.bind(styles);
@@ -35,15 +35,15 @@ export const CreateTodoFormView = memo(({ onSubmit, isLoading }: PropsType) => {
             <form className={cn(`${BLOCK_NAME}__form`)} onSubmit={handleSubmit}>
               <Text
                 size="h3-bold"
-                text={i18next.t(TODO_LIST_PAGE_TRANSLATES.createTodoTitle)}
+                text={i18next.t(TODO_PAGE_TRANSLATES.createTodoTitle)}
               />
               <Field
                 autoComplete="off"
                 component={FormSimpleInput}
                 id="todo-title"
-                label={i18next.t(TODO_LIST_PAGE_TRANSLATES.title)}
+                label={i18next.t(TODO_PAGE_TRANSLATES.title)}
                 name="title"
-                placeholder={i18next.t(TODO_LIST_PAGE_TRANSLATES.writeTitle)}
+                placeholder={i18next.t(TODO_PAGE_TRANSLATES.writeTitle)}
                 required
                 type="text"
                 validate={TODO_FORM_VALIDATIONS.title}
@@ -52,11 +52,9 @@ export const CreateTodoFormView = memo(({ onSubmit, isLoading }: PropsType) => {
                 autoComplete="off"
                 component={FormSimpleInput}
                 id="todo-description"
-                label={i18next.t(TODO_LIST_PAGE_TRANSLATES.description)}
+                label={i18next.t(TODO_PAGE_TRANSLATES.description)}
                 name="description"
-                placeholder={i18next.t(
-                  TODO_LIST_PAGE_TRANSLATES.writeDescription,
-                )}
+                placeholder={i18next.t(TODO_PAGE_TRANSLATES.writeDescription)}
                 required
                 type="text"
                 validate={TODO_FORM_VALIDATIONS.description}
@@ -65,7 +63,7 @@ export const CreateTodoFormView = memo(({ onSubmit, isLoading }: PropsType) => {
                 disabled={isSubmitDisabled}
                 isLoading={isLoading}
                 size="big"
-                text={i18next.t(TODO_LIST_PAGE_TRANSLATES.createButton)}
+                text={i18next.t(TODO_PAGE_TRANSLATES.createButton)}
                 type="submit"
                 variant="main"
               />
