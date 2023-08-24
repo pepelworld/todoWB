@@ -22,17 +22,35 @@ const createTodoController = async (req, res) => {
 };
 
 const deleteTodoController = async (req, res) => {
-    const { deletedId } = req.body;
+    const { id } = req.body;
 
     const todos = await todosModel.value();
 
-    await todos.remove({ id: deletedId }).write();
+    const foundTodo = todos.find((todo) => todo.id === id);
+
+    if (!foundTodo) {
+        res.status(200).json({
+            error: {
+                code: 404,
+                message: 'todo doesnt exist',
+            },
+            errorText: '',
+            data: {},
+            additionalErrors: null,
+        });
+
+        return;
+    }
+
+    await todosModel.remove({ id }).write();
 
     res.status(200).json({
         error: false,
         errorText: '',
         additionalErrors: null,
-        data: {id: deletedId},
+        data: {
+            id
+        },
     });
 };
 

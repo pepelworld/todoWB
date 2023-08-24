@@ -12,13 +12,13 @@ export const fetchTodosConfig: InitLoadManagerRequestOptionsType = {
   request: fetchTodosRequest,
   loadingStartAction: startLoadingTodosAction,
   loadingStopAction: stopLoadingTodosAction,
-  // requestExtraDataHandlerOptions: [
-  //   {
-  //     fieldName: 'todos',
-  //     action: setTodosAction,
-  //   },
-  // ],
-  actionSuccess: (data) => setTodosAction(data.todos),
+  requestExtraDataHandlerOptions: [
+    {
+      fieldName: 'todos',
+      action: setTodosAction,
+    },
+  ],
+  // actionSuccess: (data) => setTodosAction(data.todos),
   showErrorNotification: true,
   titleMessageError: i18next.t(TODO_PAGE_TRANSLATES.fetchTodoError),
 };

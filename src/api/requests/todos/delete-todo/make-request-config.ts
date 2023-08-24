@@ -7,7 +7,7 @@ import { responseSchema } from './response-schema';
 export type DeletedTodoType = Pick<TodoType, 'id'>;
 
 export const makeRequestConfig = (id: DeletedTodoType): IRequestParams => ({
-  body: { id },
+  body: id,
   endpoint: deleteTodoEndpoint,
   translateFunction: requestTranslateFunction,
   responseSchema,
