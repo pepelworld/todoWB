@@ -1,4 +1,3 @@
-import React, { Props } from 'react';
 import { InitialAppPreloader, Text } from '@wildberries/ui-kit';
 import { connect } from 'react-redux';
 import classnames from 'classnames/bind';
@@ -16,7 +15,8 @@ type PropsType = {
   isAppLoading: boolean;
   isAppError: boolean;
   i18nextLoading: boolean;
-} & Props<any>;
+  children: any;
+};
 
 const WrappedViewComponent = ({
   isAppLoading,
