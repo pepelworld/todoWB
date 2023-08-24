@@ -1,0 +1,38 @@
+@import "@wildberries/ui-kit/lib/styles/media.module.scss";
+
+.TodoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+
+  &__title {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__controls {
+    display: flex;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+  }
+
+  &__status {
+    display: flex;
+    gap: 5px;
+    justify-self: center;
+    margin-left: auto;
+  }
+}
+
+@media #{$mobile} {
+  .TodoItem {
+    &__title {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}

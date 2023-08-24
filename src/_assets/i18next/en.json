@@ -1,0 +1,42 @@
+{
+  "backend-errors": {
+    "authorization-error": "Не удалось авторизоваться",
+    "get-supplier-error": "Не удалось получить данные поставщика",
+    "get-costs-error": "Не удалось найти стоимости хранения",
+    "Failed to fetch": "Системная ошибка",
+    "network-error": "Системная ошибка",
+    "timeout-error": "Превышено время ожидания запроса"
+  },
+  "todo-list": {
+    "pageTitle": "TODO App",
+    "createTodoTitle": "Создать новую задачу",
+    "writeTitle": "Впишите заголовок",
+    "title": "Заголовок",
+    "writeDescription": "Впишите описание",
+    "description": "Описание",
+    "descriptionWithText": "Описание {text}",
+
+    "changeTitle": "Изменить заголовок",
+    "changeDescription": "Изменить описание",
+    "newTodoTitle": "Новый заголовок",
+    "newTodoDescription": "Новое описание",
+    "todoDone": "Задача выполенена",
+    "titleRequired": "Требуется заголовок задачи",
+    "descriptionRequired": "Требуется описание задачи",
+
+    "cancelButton": "Отменить",
+    "updateButton": "Изменить",
+    "createButton": "Создать",
+    "doneStatus": "Завершена",
+
+    "createTodoSucces": "Задача успешно создана",
+    "updateTodoSucces": "Задача успешно изменена",
+    "fetchTodoSucces": "Задачи успешно получены",
+    "deleteTodoSucces": "Задача успешно удалена",
+
+    "createTodoError": "Ошибка при содании задачи",
+    "updateTodoError": "Ошибка при обновлении задачи",
+    "fetchTodoError": "Ошибка при получении задач",
+    "deleteTodoError": "Ошибка при удалении задачи"
+  }
+}
