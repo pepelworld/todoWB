@@ -1,7 +1,8 @@
 import { IResponse, RestRequest } from '@mihanizm56/fetch-api';
 import { CreatedTodoType, makeRequestConfig } from './make-request-config';
 
-export const createTodoRequest = (
-  createdTodo: CreatedTodoType,
-): Promise<IResponse> =>
-  new RestRequest().postRequest(makeRequestConfig(createdTodo));
+type ParamsType = {
+  body: CreatedTodoType;
+};
+export const createTodoRequest = ({ body }: ParamsType): Promise<IResponse> =>
+  new RestRequest().postRequest(makeRequestConfig(body));
