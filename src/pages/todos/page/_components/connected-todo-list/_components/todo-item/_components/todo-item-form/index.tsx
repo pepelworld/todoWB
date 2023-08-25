@@ -87,7 +87,6 @@ export const TodoItemForm = memo(
                 onClick={onCancel}
                 size="big"
                 text={i18next.t(TODO_PAGE_TRANSLATES.cancelButton)}
-                type="submit"
                 variant="add"
               />
             </form>

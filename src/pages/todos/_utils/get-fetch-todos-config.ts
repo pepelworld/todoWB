@@ -18,7 +18,6 @@ export const fetchTodosConfig: InitLoadManagerRequestOptionsType = {
       action: setTodosAction,
     },
   ],
-  // actionSuccess: (data) => setTodosAction(data.todos),
   showErrorNotification: true,
   titleMessageError: i18next.t(TODO_PAGE_TRANSLATES.fetchTodoError),
 };

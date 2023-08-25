@@ -1,5 +1,5 @@
 {
     "routeName": "todos",
-    "routePath": "todos",
+    "routePath": "/todos",
     "envs": "RUNTIME_ENVS"
 }
