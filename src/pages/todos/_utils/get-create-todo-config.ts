@@ -26,14 +26,15 @@ export const getCreateTodoConfig = ({
   loadingStartAction: startLoadingTodosAction,
   loadingStopAction: stopLoadingTodosAction,
   showNotification: true,
-  formRequest: ({ body }) => createTodoRequest(body),
+  formRequest: createTodoRequest,
   textMessageSuccess: i18next.t(TODO_PAGE_TRANSLATES.createTodoSucces),
   titleMessageError: i18next.t(TODO_PAGE_TRANSLATES.createTodoError),
-  formSuccessAction: () => {
+  callBackOnSuccess: ({ dispatch }) => {
     successCallback();
-
-    return initLoadManagerActionSaga({
-      requestConfigList: [fetchTodosConfig],
-    });
+    dispatch(
+      initLoadManagerActionSaga({
+        requestConfigList: [fetchTodosConfig],
+      }),
+    );
   },
 });

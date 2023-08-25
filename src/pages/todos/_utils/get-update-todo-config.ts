@@ -20,7 +20,7 @@ export const getUpdateTodoConfig = (
     loadingStartAction: startLoadingTodosAction,
     loadingStopAction: stopLoadingTodosAction,
     showNotification: true,
-    formRequest: ({ body }) => updateTodoRequest(body),
+    formRequest: updateTodoRequest,
     textMessageSuccess: i18next.t(TODO_PAGE_TRANSLATES.updateTodoSucces),
     titleMessageError: i18next.t(TODO_PAGE_TRANSLATES.updateTodoError),
     formSuccessAction: () =>
