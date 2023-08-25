@@ -6,7 +6,7 @@ import 'fast-text-encoding/text';
 */
 import 'reset-css';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {
   geti18Next,
   getLocale,
@@ -83,11 +83,11 @@ router.add(routes);
 
 geti18Next({ appNamespace: APP_NAMESPACE, locale: getLocale() }).then(() =>
   router.start(() => {
-    ReactDOM.render(
+    const root = createRoot(ROOT_ELEMENT);
+    root.render(
       <Provider store={store}>
         <App router={router} />
       </Provider>,
-      ROOT_ELEMENT,
     );
   }),
 );

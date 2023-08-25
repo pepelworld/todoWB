@@ -3,35 +3,54 @@ const { todosModel } = require('../../models/todos');
 const createTodoController = async (req, res) => {
     const todoData = req.body;
 
+    const todos = todosModel.value()
+
     const newTodo = {
-        id: todosModel.length,
+        id: todos.length,
         isCompleted: false,
         createdDate: new Date(),
         ...todoData,
     };
 
-    await todosModel.push(newTodo).write();
-
-    res.status(200).json({
-        error: false,
-        errorText: '',
-        additionalErrors: null,
-        data: newTodo,
-    });
+        await todosModel.push(newTodo).write();
+        res.status(200).json({
+            error: false,
+            errorText: '',
+            additionalErrors: null,
+            data: newTodo,
+        });
 };
 
 const deleteTodoController = async (req, res) => {
-    const { deletedId } = req.body;
+    const { id } = req.body;
 
     const todos = await todosModel.value();
 
-    await todosModel.remove({ id: deletedId }).write();
+    const foundTodo = todos.find((todo) => todo.id === id);
+
+    if (!foundTodo) {
+        res.status(200).json({
+            error: {
+                code: 404,
+                message: 'todo doesnt exist',
+            },
+            errorText: '',
+            data: {},
+            additionalErrors: null,
+        });
+
+        return;
+    }
+
+    await todosModel.remove({ id }).write();
 
     res.status(200).json({
         error: false,
         errorText: '',
         additionalErrors: null,
-        data: {id: deletedId},
+        data: {
+            id
+        },
     });
 };
 
@@ -43,7 +62,7 @@ const fetchTodosController = async (req, res) => {
         errorText: '',
         additionalErrors: null,
         data: {
-            todos,
+            todos
         },
     });
 };

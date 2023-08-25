@@ -1,8 +1,16 @@
 import { memo } from 'react';
 import { Form, Field } from 'react-final-form';
 import { ButtonLink, FormCheckbox, FormSimpleInput } from '@wildberries/ui-kit';
+import classnames from 'classnames/bind';
+import i18next from 'i18next';
 import { UpdatedTodoType } from '@/pages/todos/_redux/todos-module/_types';
 import { TODO_FORM_VALIDATIONS } from '@/pages/todos/page/_constants/validate';
+import { TODO_PAGE_TRANSLATES } from '@/pages/todos/page/_constants/translations';
+import styles from './index.module.scss';
+
+const cn = classnames.bind(styles);
+
+const BLOCK_NAME = 'TodoItemForm';
 
 type PropsType = {
   onSubmit: (values: UpdatedTodoType) => void;
@@ -30,15 +38,15 @@ export const TodoItemForm = memo(
             submitting || pristine || isLoading || invalid;
 
           return (
-            <form onSubmit={handleSubmit}>
+            <form className={cn(BLOCK_NAME)} onSubmit={handleSubmit}>
               <Field
                 autoComplete="off"
                 component={FormSimpleInput}
                 id="todo-title"
                 initialValue={title}
-                label="Изменить заголовок"
+                label={i18next.t(TODO_PAGE_TRANSLATES.changeTitle)}
                 name="title"
-                placeholder="Новый заголовок задачи"
+                placeholder={i18next.t(TODO_PAGE_TRANSLATES.newTodoTitle)}
                 required
                 type="text"
                 validate={TODO_FORM_VALIDATIONS.title}
@@ -48,9 +56,9 @@ export const TodoItemForm = memo(
                 component={FormSimpleInput}
                 id="todo-description"
                 initialValue={description}
-                label="Изменить задачу"
+                label={i18next.t(TODO_PAGE_TRANSLATES.changeDescription)}
                 name="description"
-                placeholder="Новое название задачи"
+                placeholder={i18next.t(TODO_PAGE_TRANSLATES.newTodoDescription)}
                 required
                 type="text"
                 validate={TODO_FORM_VALIDATIONS.description}
@@ -61,16 +69,26 @@ export const TodoItemForm = memo(
                 disable={false}
                 id="todo-done"
                 initialValue={isCompleted}
-                label="Задача выполнена"
+                label={i18next.t(TODO_PAGE_TRANSLATES.todoDone)}
                 name="isCompleted"
                 type="checkbox"
               />
               <ButtonLink
                 disabled={isSubmitDisabled}
-                text="Изменить"
+                isLoading={isLoading}
+                size="big"
+                text={i18next.t(TODO_PAGE_TRANSLATES.updateButton)}
                 type="submit"
+                variant="remove"
               />
-              <ButtonLink onClick={onCancel} text="Отмена" />
+
+              <ButtonLink
+                isLoading={isLoading}
+                onClick={onCancel}
+                size="big"
+                text={i18next.t(TODO_PAGE_TRANSLATES.cancelButton)}
+                variant="add"
+              />
             </form>
           );
         }}

@@ -1,7 +1,16 @@
+@import "@wildberries/ui-kit/lib/styles/constants.module.scss";
+
 @mixin reset-default-styles {
   list-style: none;
   margin: 0;
   padding: 0;
   text-decoration: none;
+}
+
+@mixin simple-card-styles {
+  background-color: $color-text-inverse;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, .2);
+  padding: 20px;
 }
 

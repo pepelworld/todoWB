@@ -1,7 +1,7 @@
-import React, { Props } from 'react';
 import { InitialAppPreloader, Text } from '@wildberries/ui-kit';
 import { connect } from 'react-redux';
 import classnames from 'classnames/bind';
+import { PropsWithChildren } from 'react';
 import {
   getAppIsLoading,
   getIsAppError,
@@ -12,11 +12,11 @@ import styles from './index.module.scss';
 const BLOCK_NAME = 'App-layout';
 const cn = classnames.bind(styles);
 
-type PropsType = {
+type PropsType = PropsWithChildren & {
   isAppLoading: boolean;
   isAppError: boolean;
   i18nextLoading: boolean;
-} & Props<any>;
+};
 
 const WrappedViewComponent = ({
   isAppLoading,
